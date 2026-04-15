@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>别在纠结啦</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup-shell">
+      <section class="hero-card">
+        <div class="hero-top">
+          <span class="hero-badge">🌿 别在纠结啦</span>
+          <span class="status-pill" id="statusPill">已开启</span>
+        </div>
+        <h1>先把注意力，轻轻收回来一点。</h1>
+        <p>帮你在刷太久、比太久、想太久的时候，及时停一下。</p>
+      </section>
+
+      <section class="overview-card">
+        <div class="section-head">
+          <h2>今日状态概览</h2>
+          <span class="tiny-note" id="tinySummary">今天先稳住节奏 💚</span>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span>普通提醒</span>
+            <strong id="triggersValue">0</strong>
+          </article>
+          <article class="stat-card">
+            <span>先离开</span>
+            <strong id="leftValue">0</strong>
+          </article>
+          <article class="stat-card">
+            <span>稍后再看</span>
+            <strong id="savedValue">0</strong>
+          </article>
+          <article class="stat-card stat-card-soft">
+            <span>计时到点</span>
+            <strong id="timerFiredValue">0</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="timer-card">
+        <div class="section-head">
+          <h2>⏰ 计时提醒</h2>
+          <button class="ghost-link" id="refreshButton">刷新</button>
+        </div>
+        <div class="current-tab" id="currentTabInfo"></div>
+        <div class="timer-status" id="timerStatus"></div>
+        <div class="quick-actions">
+          <button class="chip-button" data-minutes="5">5 分钟</button>
+          <button class="chip-button" data-minutes="10">10 分钟</button>
+          <button class="chip-button" data-minutes="20">20 分钟</button>
+          <button class="chip-button" data-minutes="30">30 分钟</button>
+        </div>
+        <div class="custom-row">
+          <input type="number" id="customMinutesInput" min="1" max="180" placeholder="自定义分钟数" />
+          <button class="primary-button" id="startCustomTimerButton">为当前页面开始计时</button>
+        </div>
+        <div class="timer-actions">
+          <button class="secondary-button" id="stopTimerButton">停止计时</button>
+          <button class="secondary-button" id="openOptionsButton">打开设置页</button>
+        </div>
+      </section>
+
+      <section class="list-card">
+        <div class="section-head">
+          <h2>📌 最近稍后再看</h2>
+          <button class="ghost-link" id="openHistoryButton">完整历史</button>
+        </div>
+        <div class="saved-list" id="savedList"></div>
+      </section>
+    </main>
+
+    <script src="api.js"></script>
+    <script src="pageRules.js"></script>
+    <script src="constants.js"></script>
+    <script src="utils.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

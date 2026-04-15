@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>别在纠结啦 - 设置</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-card">
+        <span class="hero-badge">🌿 别在纠结啦</span>
+        <h1>把提醒调成你喜欢的节奏</h1>
+        <p>不说教，也不放任。让插件在合适的时候，替你轻轻拉一下刹车。</p>
+      </section>
+
+      <form id="settingsForm" class="settings-grid">
+        <section class="panel-card">
+          <div class="section-head">
+            <h2>基础开关</h2>
+            <p>控制插件是否参与当前浏览行为。</p>
+          </div>
+          <label class="switch-row"><span>启用插件</span><input type="checkbox" id="enabled" /></label>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" id="page-shopping" /> 购物页</label>
+            <label><input type="checkbox" id="page-video" /> 视频页</label>
+            <label><input type="checkbox" id="page-social" /> 社交内容流</label>
+            <label><input type="checkbox" id="page-article" /> 文章 / 新闻</label>
+            <label><input type="checkbox" id="page-workStudy" /> 工作学习</label>
+            <label><input type="checkbox" id="page-default" /> 其他页面</label>
+          </div>
+        </section>
+
+        <section class="panel-card">
+          <div class="section-head">
+            <h2>检测规则</h2>
+            <p>这些阈值决定普通提醒什么时候出现。</p>
+          </div>
+          <div class="field-grid">
+            <label class="field"><span>长停留秒数</span><input type="number" id="longStaySeconds" min="30" step="10" /></label>
+            <label class="field"><span>滚动次数阈值</span><input type="number" id="longStayScrollCount" min="1" step="1" /></label>
+            <label class="field"><span>中等停留秒数</span><input type="number" id="mediumStaySeconds" min="30" step="10" /></label>
+            <label class="field"><span>方向切换阈值</span><input type="number" id="directionChangeCount" min="1" step="1" /></label>
+            <label class="field"><span>回前台次数</span><input type="number" id="revisitForegroundCount" min="1" step="1" /></label>
+            <label class="field"><span>累计停留秒数</span><input type="number" id="revisitStaySeconds" min="30" step="10" /></label>
+            <label class="field"><span>普通提醒冷却（秒）</span><input type="number" id="cooldownSeconds" min="60" step="30" /></label>
+            <label class="field"><span>单页最多提醒次数</span><input type="number" id="maxPromptsPerPageLoad" min="1" max="5" step="1" /></label>
+          </div>
+        </section>
+
+        <section class="panel-card">
+          <div class="section-head">
+            <h2>计时提醒</h2>
+            <p>V2 重点功能。到点后会弹出更明显的居中提醒。</p>
+          </div>
+          <div class="field-grid">
+            <label class="switch-row"><span>启用计时提醒</span><input type="checkbox" id="timerEnabled" /></label>
+            <label class="switch-row"><span>仅当前标签页生效</span><input type="checkbox" id="timerCurrentTabOnly" /></label>
+            <label class="switch-row"><span>允许按页面类型自动计时</span><input type="checkbox" id="timerAllowPerType" /></label>
+            <label class="switch-row"><span>开启到点强提醒</span><input type="checkbox" id="timerForceModalEnabled" /></label>
+            <label class="field"><span>默认计时（分钟）</span><input type="number" id="timerDefaultMinutes" min="1" max="180" step="1" /></label>
+            <label class="field"><span>强提醒冷却（分钟）</span><input type="number" id="timerCooldownMinutes" min="1" max="60" step="1" /></label>
+            <label class="field"><span>单页最多强提醒</span><input type="number" id="timerMaxModalCountPerLoad" min="1" max="5" step="1" /></label>
+          </div>
+          <div class="type-timer-grid">
+            <div class="type-timer-card"><strong>购物页</strong><label><input type="checkbox" id="timer-shopping-enabled" /> 启用</label><input type="number" id="timer-shopping-minutes" min="1" step="1" /></div>
+            <div class="type-timer-card"><strong>视频页</strong><label><input type="checkbox" id="timer-video-enabled" /> 启用</label><input type="number" id="timer-video-minutes" min="1" step="1" /></div>
+            <div class="type-timer-card"><strong>社交内容流</strong><label><input type="checkbox" id="timer-social-enabled" /> 启用</label><input type="number" id="timer-social-minutes" min="1" step="1" /></div>
+            <div class="type-timer-card"><strong>文章 / 新闻</strong><label><input type="checkbox" id="timer-article-enabled" /> 启用</label><input type="number" id="timer-article-minutes" min="1" step="1" /></div>
+            <div class="type-timer-card"><strong>工作学习</strong><label><input type="checkbox" id="timer-workStudy-enabled" /> 启用</label><input type="number" id="timer-workStudy-minutes" min="1" step="1" /></div>
+            <div class="type-timer-card"><strong>其他页面</strong><label><input type="checkbox" id="timer-default-enabled" /> 启用</label><input type="number" id="timer-default-minutes" min="1" step="1" /></div>
+          </div>
+        </section>
+
+        <section class="panel-card">
+          <div class="section-head">
+            <h2>文案风格</h2>
+            <p>普通提醒和强提醒都使用这套中文化风格。</p>
+          </div>
+          <div class="tone-grid">
+            <label class="tone-card"><input type="radio" name="toneStyle" value="gentle" /><strong>温和</strong><span>先停一下吧 🌿</span></label>
+            <label class="tone-card"><input type="radio" name="toneStyle" value="calm" /><strong>冷静</strong><span>继续浏览未必更清楚。</span></label>
+            <label class="tone-card"><input type="radio" name="toneStyle" value="direct" /><strong>直接</strong><span>别在纠结啦。</span></label>
+          </div>
+          <div class="tone-grid tone-grid-mini">
+            <label class="tone-card"><input type="radio" name="timerModalTone" value="gentle" /><strong>强提醒 · 温和</strong></label>
+            <label class="tone-card"><input type="radio" name="timerModalTone" value="calm" /><strong>强提醒 · 冷静</strong></label>
+            <label class="tone-card"><input type="radio" name="timerModalTone" value="direct" /><strong>强提醒 · 直接</strong></label>
+          </div>
+        </section>
+
+        <section class="panel-card">
+          <div class="section-head">
+            <h2>浏览器说明</h2>
+            <p>Chrome / Edge 优先，Firefox 会尽量兼容并自动降级。</p>
+          </div>
+          <div class="browser-notes">
+            <p>Chrome / Edge：推荐直接加载当前目录，所有核心能力都以这两个浏览器为第一优先级。</p>
+            <p>Firefox：支持本地加载与主流程使用；若自动关闭标签页受限，会自动回退为跳转空白页或提示手动关闭。</p>
+          </div>
+        </section>
+
+        <section class="footer-actions">
+          <button type="button" class="secondary-button" id="resetButton">恢复默认</button>
+          <button type="submit" class="primary-button">保存设置</button>
+        </section>
+        <p class="status-text" id="statusText"></p>
+      </form>
+    </main>
+
+    <script src="api.js"></script>
+    <script src="pageRules.js"></script>
+    <script src="constants.js"></script>
+    <script src="utils.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

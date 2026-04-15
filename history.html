@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>别在纠结啦 - 稍后再看</title>
+    <link rel="stylesheet" href="history.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-card">
+        <span class="hero-badge">📌 稍后再看</span>
+        <h1>先存起来，等更清醒的时候再回来。</h1>
+        <p>这里会留住那些你当下不想继续耗着的页面，帮你把注意力从网页里拿回来。</p>
+      </section>
+
+      <section class="toolbar-card">
+        <div class="filter-box">
+          <label for="typeFilter">筛选页面类型</label>
+          <select id="typeFilter">
+            <option value="all">全部</option>
+            <option value="shopping">购物</option>
+            <option value="video">视频</option>
+            <option value="social">社交内容流</option>
+            <option value="article">文章 / 新闻</option>
+            <option value="workStudy">工作学习</option>
+            <option value="default">其他</option>
+          </select>
+        </div>
+        <button class="secondary-button" id="clearAllButton">清空全部</button>
+      </section>
+
+      <section class="history-list" id="historyList"></section>
+    </main>
+
+    <script src="api.js"></script>
+    <script src="pageRules.js"></script>
+    <script src="constants.js"></script>
+    <script src="utils.js"></script>
+    <script src="history.js"></script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+:root {
+  --panel: rgba(255, 255, 255, 0.92);
+  --line: #d7e8d8;
+  --text: #173622;
+  --muted: #62806a;
+  --green-dark: #2f6b3d;
+  --green-soft: #eef8ef;
+  --shadow: 0 22px 48px rgba(58, 102, 67, 0.1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, rgba(197, 229, 202, 0.72), transparent 28%),
+    linear-gradient(180deg, #f9fef9, #eef8ef);
+}
+
+.page-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 18px 48px;
+}
+
+.hero-card,
+.toolbar-card,
+.history-item,
+.empty-state {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  border-radius: 28px;
+}
+
+.hero-card,
+.toolbar-card,
+.history-item,
+.empty-state {
+  padding: 22px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-size: 12px;
+}
+
+.hero-card h1 {
+  margin: 16px 0 8px;
+  font-size: 36px;
+}
+
+.hero-card p,
+.history-item p,
+.meta-row,
+.empty-state p,
+.filter-box label {
+  color: var(--muted);
+}
+
+.toolbar-card {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 14px;
+}
+
+.filter-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-box select {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px 14px;
+  min-width: 220px;
+  background: #fff;
+  color: var(--text);
+}
+
+.history-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.history-item h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.actions-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+  border: none;
+  border-radius: 16px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: linear-gradient(180deg, #67b474, #559d64);
+  color: #f9fff9;
+}
+
+.secondary-button {
+  background: #f5fbf5;
+  color: var(--green-dark);
+  border: 1px solid var(--line);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 44px 22px;
+}
+
+.empty-emoji {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 760px) {
+  .hero-card h1 { font-size: 28px; }
+  .toolbar-card { flex-direction: column; align-items: stretch; }
+}

@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "\u522b\u5728\u7ea0\u7ed3\u5566",
+  "description": "\u4e00\u4e2a\u5e2e\u4f60\u4ece\u7ea0\u7ed3\u3001\u5237\u5c4f\u548c\u53cd\u590d\u6bd4\u8f83\u91cc\u5148\u505c\u4e00\u4e0b\u7684\u672c\u5730\u6d4f\u89c8\u5668\u63d2\u4ef6\u3002",
+  "version": "2.0.0",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "\u522b\u5728\u7ea0\u7ed3\u5566",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "api.js",
+        "pageRules.js",
+        "constants.js",
+        "utils.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
